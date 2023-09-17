@@ -1,0 +1,4 @@
+Data: 
+Temperature: 22*C   Humidity: 34%
+Soil moisture:222.3913043478261%
+Time recorded: 2023-05-05 17:30:04.058195
