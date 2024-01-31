@@ -1,15 +1,35 @@
-<html>
-<head>
-<title> {{ title }} </title>
-<meta http-equiv="refresh" content="10">
-<!-- <link rel="stylesheet" href='/static/style.css' />
--->
-</head>
-<body>
-<h1>Welcome to the SJU Community Garden Data Website!</h1>
-<h2> Soil Temp: {{ Temperature }} </h2>
-<h2> Light: {{ Light }} <h2>
-<h2> Soil Moisture: {{ Soil_Moisture }} </h2>
-<a href="/hello/pi2">Raspberry Pi 2</a>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Garden Monitor!</title>
+    <link href="/static/style.css" rel="stylesheet">
+  </head>
+  <body>
+<div class="container" style="height: 100vh; background: crimson; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<h1 style="color: white;">🌿️SJU Community Garden Monitor!</h1>
+<br>
+  <div class="card" style="height: 80%; width: 80%;">
+    <div class="card-body" style="background-color: gainsboro; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly;">
+	<p>Light:  {{ Light }} ; Soil Temp (-20, 37):  {{ Temperature }} ; Soil Moisutre:  {{ Soil_Moisture }} </p>
+	<div class="progress" role="progressbar" style="width: 75%">
+  		<div class="progress-bar bg-dark text-light" style="width: 50%">Ideal value!</div>
+	</div>
+    	<div class="progress" role="progressbar" style="width: 75%">
+  		<div class="progress-bar bg-warning text-dark" style="width: 25%">Light</div>
+	</div>
+	<div class="progress" role="progressbar" style="width: 75%">
+  		<div class="progress-bar bg-danger text-light" style="width: 50%">Soil Temp</div>
+	</div>
+	<div class="progress" role="progressbar" style="width: 75%">
+ 		<div class="progress-bar bg-info text-dark" style="width: 75%">Humidity</div>
+	</div>
+	<div class="progress" role="progressbar" style="width: 75%">
+		<div class="progress-bar bg-success" style="width: 100%">Soil Moisture</div>
+	</div>
+    </div>
+  </div>
+</div>
+  </body>
 </html>
