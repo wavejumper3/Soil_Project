@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scatter Plot</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="scatterChart" width="800" height="400"></canvas>
+
+    <script>
+        // Get data from Flask
+        var data = {{ data | tojson }};
+	// Convert "Yes" to 1 and "No" to 0
+	var dates = data.map(function(item) { return item.date; });
+	var lightValues = data.map(function(item) { return item.light; });
+
+        // Create scatter plot
+        var ctx = document.getElementById('scatterChart').getContext('2d');
+        var scatterChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Scatter Plot',
+                    data: data,
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)'
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time',
+			time: {
+				unit: 'day'
+			}
+                    },
+		    y: {
+			ticks: {
+				stepSize: 1,
+				callback: function(value, index, values) {
+					return value === 1 ? 'Yes' : 'No';
+				}
+			}
+		   }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
